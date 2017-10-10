@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.tecsup.jeferson.calendarapp.EventoActivity">
 
     <LinearLayout
@@ -90,11 +91,13 @@
                 android:layout_marginTop="12sp"/>
 
             <Button
+                android:id="@+id/btn_buscar_f"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Buscar Fecha"
                 android:layout_alignParentEnd="true"
-                android:layout_alignEnd="@+id/txt_fecha"/>
+                android:layout_alignEnd="@+id/txt_fecha"
+                android:onClick="mostrarCalendar"/>
 
         </RelativeLayout>
 
@@ -108,7 +111,7 @@
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp">
+            android:layout_marginTop="20dp">
 
             <TextView
                 android:id="@+id/txt_hora"
@@ -119,6 +122,7 @@
                 android:textSize="17sp" />
 
             <Button
+                android:id="@+id/btn_buscar_h"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Buscar Hora"
@@ -135,6 +139,7 @@
         android:text="Guardar Evento"
         android:gravity="center"
         android:layout_below="@+id/linear"
-        android:layout_centerInParent="true"/>
+        android:layout_centerInParent="true"
+        android:onClick="Guardar_evento"/>
 
 </RelativeLayout>
