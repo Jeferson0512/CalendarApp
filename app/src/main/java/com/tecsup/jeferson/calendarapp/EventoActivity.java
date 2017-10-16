@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
@@ -20,6 +21,7 @@ public class EventoActivity extends AppCompatActivity implements View.OnClickLis
     private int dia, mes, año, hora, minutos;
     private TextView txt_hora,txt_fecha;
     private Button btn_buscar_f,btn_buscar_h;
+    private EditText edt_titulo,edt_descripcion;
     private static final int TIPO_DIALOGO = 0;
     private static DatePickerDialog.OnDateSetListener SelectorFecha;
 
@@ -28,10 +30,18 @@ public class EventoActivity extends AppCompatActivity implements View.OnClickLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_evento);
 
-        txt_hora = (TextView)findViewById(R.id.txt_hora);
-        txt_fecha =(TextView)findViewById(R.id.txt_fecha);
         btn_buscar_h = (Button)findViewById(R.id.btn_buscar_h);
         btn_buscar_f = (Button)findViewById(R.id.btn_buscar_f);
+        //---------------------------------------------------------------
+        txt_hora = (TextView)findViewById(R.id.txt_hora);
+        txt_fecha =(TextView)findViewById(R.id.txt_fecha);
+        edt_titulo=(EditText)findViewById(R.id.edt_titulo);
+        edt_descripcion=(EditText)findViewById(R.id.edt_descripcion);
+
+        /*String fecha= txt_fecha.getText().toString();
+        String hora = txt_hora.getText().toString();
+        String descripcion = edt_titulo.getText().toString();
+        String titulo= edt_titulo.getText().toString();*/
 
         Calendar calendar = Calendar.getInstance();
 
@@ -96,6 +106,13 @@ public class EventoActivity extends AppCompatActivity implements View.OnClickLis
         intent.putExtra("dato2",txt_hora.getText().toString());
         startActivity(intent);*/
         Toast.makeText(this, "Evento Guardado", Toast.LENGTH_SHORT).show();
+
+        Intent intent = new Intent(this, ViewEventActivity.class);
+        intent.putExtra("titulo",edt_titulo.getText().toString());
+        intent.putExtra("descripcion",edt_descripcion.getText().toString());
+        intent.putExtra("hora",txt_hora.getText().toString());
+        intent.putExtra("fecha",txt_fecha.getText().toString());
+        startActivity(intent);
     }
 
 }
