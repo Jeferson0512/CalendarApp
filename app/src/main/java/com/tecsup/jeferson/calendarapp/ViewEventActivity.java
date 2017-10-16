@@ -7,7 +7,7 @@ import android.widget.TextView;
 
 public class ViewEventActivity extends AppCompatActivity {
 
-    private TextView titulo, descripcion, hora, fecha;
+    private TextView titulo, descripcion, hora, fecha,prueba;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
